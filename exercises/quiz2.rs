@@ -36,11 +36,7 @@ mod my_module {
             let value = match command {
                 Command::Uppercase => string.to_uppercase(),
                 Command::Trim => string.trim().to_owned(),
-                Command::Append(num) => {
-                    let mut ret = String::from(string);
-                    ret.push_str("bar".repeat(*num).as_str());
-                    ret
-                }
+                Command::Append(num) => format!("{}{}", string, "bar".repeat(*num)),
             };
             output.push(value);
         }
